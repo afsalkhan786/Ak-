@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zepto Clone - Fast Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .product-card { border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="bg-purple-700 text-white p-4 sticky top-0 z-50 flex justify-between items-center">
+        <h1 class="text-xl font-bold">Zepto Clone</h1>
+        <button class="bg-white text-purple-700 px-4 py-1 rounded-full font-bold">Cart (0)</button>
+    </header>
+
+    <div class="p-4 grid grid-cols-2 md:grid-cols-4 gap-4" id="inventory">
+        </div>
+
+    <div class="fixed bottom-5 right-5 flex flex-col gap-3">
+        <a href="https://wa.me/91XXXXXXXXXX" class="bg-green-500 text-white p-4 rounded-full shadow-lg">WhatsApp</a>
+    </div>
+
+    <script>
+        // 100 Products Inventory Setup
+        const inventory = document.getElementById('inventory');
+        const items = [
+            { name: "Milk", price: "₹30", img: "https://images.unsplash.com/photo-1563636619-e9107da5a163?w=200" },
+            { name: "Bread", price: "₹40", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200" },
+            { name: "Eggs", price: "₹70", img: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=200" },
+            // Isi tarah hum 100 items add kar sakte hain
+        ];
+
+        // Loop to create 100 items (Demos)
+        for(let i=0; i<100; i++) {
+            const item = items[i % items.length];
+            inventory.innerHTML += `
+                <div class="product-card bg-white shadow-sm">
+                    <img src="${item.img}" class="w-full h-32 object-cover rounded">
+                    <h3 class="font-bold mt-2">${item.name} #${i+1}</h3>
+                    <p class="text-gray-500">${item.price}</p>
+                    <button onclick="order('${item.name}')" class="bg-purple-600 text-white w-full mt-2 py-1 rounded">Add</button>
+                </div>
+            `;
+        }
+
+        function order(name) {
+            window.location.href = `https://wa.me/917204608067?text=I want to order ${name}`;
+        }
+    </script>
+
+    <script src="//code.tidio.co/YOUR_ID.js" async></script>
+</body>
+</html>
